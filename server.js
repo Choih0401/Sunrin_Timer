@@ -61,8 +61,8 @@ app.post('/submit',
         var gep = now.getTime() - old.getTime();
         if(gep / 1000 > 3){
           res.render('index', {
-            qr:"fail",
-            comment: "fail"
+            qr:"Timeout!!!!",
+            comment: "Timeout!!!!"
           });
         }else{
           res.render('index', {
