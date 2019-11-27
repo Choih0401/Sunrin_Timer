@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Timer and Clock</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+
+<body style="overflow-y: scroll;" class="no-drag">
+    <!-- partial:index.partial.html -->
+    <h1>Sunrins</h1>
+    <h5>by Choih0401</h5>
+    <div class="box1"><span class="clock"></span>
+        <main ng-app="PomodoroApp" ng-controller="MainCtrl">
+            <header>
+                <div class="session">
+                    <div class="breakCtrl">
+                        <p>breaktime length</p>
+                        <button class="minus" ng-click="breakLengthChange(-1)">-</button><span class="time">{{breakLength}}</span>
+                        <button class="plus" ng-click="breakLengthChange(1)">+</button>
+                    </div>
+                    <div class="sessionCtrl">
+                        <p>minute length</p>
+                        <button class="minus" ng-click="sessionLengthChange(-1)">-</button><span class="time">{{sessionLength}}</span>
+                        <button class="plus" ng-click="sessionLengthChange(1)">+</button>
+                    </div>
+                </div>
+            </header>
+            <section ng-click="toggleTimer()">
+                <div class="timer">
+                    <p class="title">{{sessionName}}</p>
+                    <p>{{timeLeft}}</p><span class="fill" ng-style="{'height':fillHeight, 'background':fillColor }"></span>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="box2">
+        <main id="todolist">
+            <h1>
+              면접 순서
+            </h1>
+          
+            <template v-if="todo.length">
+              <transition-group name="todolist" tag="ul">
+                <li v-for="item in todoByStatus" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
+                  <span class="label">{{item.label}}</span>
+                  <div class="actions">
+                    <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
+                      <i aria-hidden="true" class="material-icons">{{ item.done ? 'check_box' : 'check_box_outline_blank' }}</i>
+                    </button>
+                    <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
+                      <i aria-hidden="true" class="material-icons">delete</i>
+                    </button>
+                  </div>
+                </li>
+              </transition-group>
+              <togglebutton 
+                            label="Move done items at the end?"
+                            name="todosort"
+                            v-on:clicked="clickontoogle" />
+            </template>
+            <p v-else class="emptylist">List is empty</p>
+          
+            <form name="newform" v-on:submit.prevent="addItem">
+              <label for="newitem"></label>
+              <input type="text" name="newitem" id="newitem" v-model="newitem">
+              <button type="submit">Add Person</button>
+            </form>
+          </main>
+    </div>
+
+    <!-- partial -->
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="./script.js"></script>
+    
+
+</body>
+
+</html>

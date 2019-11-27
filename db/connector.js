@@ -4,7 +4,7 @@ const db = {
   port: 3306,
   user: 'root',
   password: 'ch04010508',
-  database: 'misc'
+  database: 'webmafia'
 };
 
 var connector
