@@ -257,12 +257,12 @@ h2 {
 
 .box1 {
 	float: right;
-	margin-top: 7%;
+	margin-top: 5%;
 }
 
 .box2 {
 	float: left;
-	margin-top: 5%;
+	margin-top: 3%;
 }
 
 @media screen and (max-width:1000px){

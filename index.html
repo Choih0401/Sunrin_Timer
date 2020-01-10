@@ -11,8 +11,6 @@
 
 <body style="overflow-y: scroll;" class="no-drag">
     <!-- partial:index.partial.html -->
-    <h1>Sunrins</h1>
-    <h5>by Choih0401</h5>
     <div class="box1"><span class="clock"></span>
         <main ng-app="PomodoroApp" ng-controller="MainCtrl">
             <header>
@@ -40,7 +38,7 @@
     <div class="box2">
         <main id="todolist">
             <h1>
-              면접 순서
+              Todo-List
             </h1>
           
             <template v-if="todo.length">
@@ -67,7 +65,7 @@
             <form name="newform" v-on:submit.prevent="addItem">
               <label for="newitem"></label>
               <input type="text" name="newitem" id="newitem" v-model="newitem">
-              <button type="submit">Add Person</button>
+              <button type="submit">Add WORK</button>
             </form>
           </main>
     </div>
